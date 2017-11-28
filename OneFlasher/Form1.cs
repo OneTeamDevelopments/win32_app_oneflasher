@@ -2,6 +2,7 @@
 using MaterialSkin.Controls;
 using OneFlasher.Properties;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -22,7 +23,7 @@ namespace OneFlasher
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);
 
             if (Directory.Exists(romDir)) Directory.Delete(romDir, true);
 
@@ -48,7 +49,7 @@ namespace OneFlasher
                     Arguments = command,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    RedirectStandardError=true,
+                    RedirectStandardError = true,
                     CreateNoWindow = true
                 }
             };
@@ -62,9 +63,19 @@ namespace OneFlasher
             return q.ToString();
         }
 
-        public string fastboot_get(string var,int line=0)
+        public string fastboot_get(string var, int line = 0)
         {
             return fastboot(var).Split('\n')[line].Split(':')[1].Trim();
+        }
+
+        public string fastboot_flash(string part, string file)
+        {
+            return fastboot("flash " + part + " " + file);
+        }
+
+        public void fastboot_reboot()
+        {
+            fastboot("reboot");
         }
 
         public bool checkDevice(int bg = 0)
@@ -77,7 +88,7 @@ namespace OneFlasher
                     board.Invoke((Action)delegate { board.Text = fastboot_get("getvar product"); });
                     serialno.Invoke((Action)delegate { serialno.Text = fastboot_get("getvar serialno"); });
                     bootloader.Invoke((Action)delegate { bootloader.Text = fastboot_get("getvar version-bootloader"); });
-                    oem.Invoke((Action)delegate { oem.Text = (fastboot_get("oem device-info",2)=="true"?"Kilit Açık":"Kilitli."); });
+                    oem.Invoke((Action)delegate { oem.Text = (fastboot_get("oem device-info", 2) == "true" ? "Kilit Açık" : "Kilitli."); });
                 }
                 return true;
             }
@@ -97,15 +108,37 @@ namespace OneFlasher
             if (checkDevice())
             {
 
-                    if (MessageBox.Show("\"" + input.SafeFileName + "\" Yazılımının Kurulum İşlemini Onaylıyor Musunuz? İşlemlerden One Team Ve Rom Sahibi Sorumlu Tutulamaz!", "İşlem Onayı",
+                if (MessageBox.Show("\"" + input.SafeFileName + "\" Yazılımının Kurulum İşlemini Onaylıyor Musunuz? İşlemlerden One Team Ve Rom Sahibi Sorumlu Tutulamaz!", "İşlem Onayı",
 MessageBoxButtons.YesNo, MessageBoxIcon.Question,
 MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                }
-                else
-                {
-                    MessageBox.Show("Yazılım Dosyası Seçilmedi. Lütfen Yazılım Dosyası Seçiniz.", "Hata Oluştu!",
-    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DirectoryInfo romFiles = new DirectoryInfo("Rom_Files");
+                    FileInfo[] files = romFiles.GetFiles("*");
+
+                    List<KeyValuePair<string, string>> flashList = new List<KeyValuePair<string, string>>();
+
+                    foreach (FileInfo file in files)
+                    {
+                        if (file.Name == "rom.ini" || file.Name.Substring(0, 3) == "oem") continue;
+                        flashList.Add(new KeyValuePair<string, string>(file.Name.Split('.')[0], file.Name));
+                    }
+                    if (oemType.Text != "") flashList.Add(new KeyValuePair<string, string>("oem", oemType.Text + ".img"));
+
+                    foreach (KeyValuePair<string, string> flash in flashList)
+                    {
+                        action.Text = flash.Key + " Flashlanıyor.";
+                        fastboot_flash(flash.Key, romDir + "/" + flash.Value);
+                        action.Text = flash.Key + " Flashlandı.";
+                    }
+
+                    action.Text = "Cihaz Yeniden Başlatılıyor...";
+                    progress.Value = 90;
+
+                    MessageBox.Show("Yazılım Kurulum İşlemi Tamamlandı. Cihazınız Yeniden Başlatılıyor.", "Bilgilendirme Mesajı!",
+    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    fastboot_reboot();
+                    action.Text = "Flashlama İşlemi Tamamlandı.";
+                    progress.Value = 100;
                 }
             }
             else
@@ -125,31 +158,49 @@ MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 
             if (input.FileNames.Length != 0)
             {
+                if (Directory.Exists(romDir)) Directory.Delete(romDir, true);
 
-                    if (Directory.Exists(romDir)) Directory.Delete(romDir, true);
+                DirectoryInfo di = Directory.CreateDirectory(romDir);
+                di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
 
-                    DirectoryInfo di = Directory.CreateDirectory(romDir);
-                    di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
-
-                    progress.Value = 10;
-                    action.Text = "Yazılım Okunuyor.";
-                    var proc = new Process
+                progress.Value = 10;
+                action.Text = "Yazılım Okunuyor.";
+                var proc = new Process
+                {
+                    StartInfo = new ProcessStartInfo
                     {
-                        StartInfo = new ProcessStartInfo
-                        {
-                            FileName = "library/oneteam.exe",
-                            Arguments = "x -y -o " + romDir + " " + input.FileName + " *",
-                            UseShellExecute = false,
-                            CreateNoWindow = true
-                        }
-                    };
-                    proc.Start();
-                    proc.WaitForExit();
-                    progress.Value = 25;
-                    action.Text = "Yazılım Okundu.";
+                        FileName = "library/oneteam.exe",
+                        Arguments = "x -y -o " + romDir + " " + input.FileName + " *",
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }
+                };
+                proc.Start();
+                proc.WaitForExit();
+                progress.Value = 25;
+
+                var ini = new IniFile(romDir + "/rom.ini");
+                deviceName.Text = ini.Read("deviceName", "OneCompressor") + "( " + ini.Read("deviceCode", "OneCompressor") + " )";
+                romName.Text = ini.Read("romName", "OneCompressor") + " ( V" + ini.Read("romVersion", "OneCompressor") + " )";
+
+                oemType.Items.Clear();
+
+                DirectoryInfo romFiles = new DirectoryInfo("Rom_Files");
+                FileInfo[] files = romFiles.GetFiles("oem*");
+
+                foreach (FileInfo file in files)
+                {
+                    oemType.Items.Add(file.Name.Split('.')[0]);
+                }
+                if (oemType.Items.Count != 0) oemType.SelectedIndex = 0;
+                oemType.Update();
+
+                action.Text = "Yazılım Okundu.";
             }
             else
             {
+                deviceName.Text = "";
+                romName.Text = "";
                 MessageBox.Show("Yazılım Seçilmedi. Lütfen Yazılım Dosyasını Seçin.", "Hata Oluştu!",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

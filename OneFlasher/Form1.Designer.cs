@@ -53,6 +53,12 @@
             this.bootloader = new MaterialSkin.Controls.MaterialLabel();
             this.oem = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.romName = new MaterialSkin.Controls.MaterialLabel();
+            this.deviceName = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.oemType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.androidDevice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +113,7 @@
             // progress
             // 
             this.progress.Depth = 0;
-            this.progress.Location = new System.Drawing.Point(318, 574);
+            this.progress.Location = new System.Drawing.Point(318, 584);
             this.progress.MouseState = MaterialSkin.MouseState.HOVER;
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(535, 5);
@@ -118,7 +124,7 @@
             this.action.Depth = 0;
             this.action.Font = new System.Drawing.Font("Roboto", 11F);
             this.action.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.action.Location = new System.Drawing.Point(318, 540);
+            this.action.Location = new System.Drawing.Point(318, 550);
             this.action.MouseState = MaterialSkin.MouseState.HOVER;
             this.action.Name = "action";
             this.action.Size = new System.Drawing.Size(536, 22);
@@ -138,7 +144,7 @@
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(318, 516);
+            this.materialDivider1.Location = new System.Drawing.Point(318, 530);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(536, 3);
@@ -149,10 +155,10 @@
             // 
             this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(318, 385);
+            this.materialDivider3.Location = new System.Drawing.Point(318, 411);
             this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(3, 133);
+            this.materialDivider3.Size = new System.Drawing.Size(3, 120);
             this.materialDivider3.TabIndex = 14;
             this.materialDivider3.Text = "materialDivider3";
             // 
@@ -160,10 +166,10 @@
             // 
             this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider4.Depth = 0;
-            this.materialDivider4.Location = new System.Drawing.Point(851, 385);
+            this.materialDivider4.Location = new System.Drawing.Point(851, 411);
             this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider4.Name = "materialDivider4";
-            this.materialDivider4.Size = new System.Drawing.Size(3, 133);
+            this.materialDivider4.Size = new System.Drawing.Size(3, 120);
             this.materialDivider4.TabIndex = 15;
             this.materialDivider4.Text = "materialDivider4";
             // 
@@ -172,7 +178,7 @@
             this.softwareInfo.Depth = 0;
             this.softwareInfo.Font = new System.Drawing.Font("Roboto", 11F);
             this.softwareInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.softwareInfo.Location = new System.Drawing.Point(318, 353);
+            this.softwareInfo.Location = new System.Drawing.Point(318, 379);
             this.softwareInfo.MouseState = MaterialSkin.MouseState.HOVER;
             this.softwareInfo.Name = "softwareInfo";
             this.softwareInfo.Size = new System.Drawing.Size(130, 25);
@@ -239,7 +245,7 @@
             // 
             this.materialDivider9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider9.Depth = 0;
-            this.materialDivider9.Location = new System.Drawing.Point(318, 385);
+            this.materialDivider9.Location = new System.Drawing.Point(318, 411);
             this.materialDivider9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider9.Name = "materialDivider9";
             this.materialDivider9.Size = new System.Drawing.Size(536, 3);
@@ -292,7 +298,6 @@
             this.board.Name = "board";
             this.board.Size = new System.Drawing.Size(415, 22);
             this.board.TabIndex = 28;
-            this.board.Text = "data";
             // 
             // serialno
             // 
@@ -304,7 +309,6 @@
             this.serialno.Name = "serialno";
             this.serialno.Size = new System.Drawing.Size(415, 22);
             this.serialno.TabIndex = 29;
-            this.serialno.Text = "data";
             // 
             // bootloader
             // 
@@ -316,7 +320,6 @@
             this.bootloader.Name = "bootloader";
             this.bootloader.Size = new System.Drawing.Size(415, 22);
             this.bootloader.TabIndex = 30;
-            this.bootloader.Text = "data";
             // 
             // oem
             // 
@@ -328,7 +331,6 @@
             this.oem.Name = "oem";
             this.oem.Size = new System.Drawing.Size(415, 22);
             this.oem.TabIndex = 32;
-            this.oem.Text = "data";
             // 
             // materialLabel6
             // 
@@ -342,11 +344,85 @@
             this.materialLabel6.TabIndex = 31;
             this.materialLabel6.Text = "Oem Kilidi :";
             // 
+            // romName
+            // 
+            this.romName.Depth = 0;
+            this.romName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.romName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.romName.Location = new System.Drawing.Point(428, 462);
+            this.romName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.romName.Name = "romName";
+            this.romName.Size = new System.Drawing.Size(415, 22);
+            this.romName.TabIndex = 36;
+            // 
+            // deviceName
+            // 
+            this.deviceName.Depth = 0;
+            this.deviceName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.deviceName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.deviceName.Location = new System.Drawing.Point(428, 427);
+            this.deviceName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.deviceName.Name = "deviceName";
+            this.deviceName.Size = new System.Drawing.Size(415, 22);
+            this.deviceName.TabIndex = 35;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(327, 462);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(95, 22);
+            this.materialLabel8.TabIndex = 34;
+            this.materialLabel8.Text = "Yazılım: ";
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(327, 427);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(95, 22);
+            this.materialLabel9.TabIndex = 33;
+            this.materialLabel9.Text = "Cihaz: ";
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(327, 496);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(95, 22);
+            this.materialLabel7.TabIndex = 37;
+            this.materialLabel7.Text = "Oem Türü: ";
+            // 
+            // oemType
+            // 
+            this.oemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.oemType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.oemType.FormattingEnabled = true;
+            this.oemType.Location = new System.Drawing.Point(428, 496);
+            this.oemType.Name = "oemType";
+            this.oemType.Size = new System.Drawing.Size(415, 21);
+            this.oemType.TabIndex = 38;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 591);
+            this.ClientSize = new System.Drawing.Size(869, 606);
+            this.Controls.Add(this.oemType);
+            this.Controls.Add(this.materialLabel7);
+            this.Controls.Add(this.romName);
+            this.Controls.Add(this.deviceName);
+            this.Controls.Add(this.materialLabel8);
+            this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.oem);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.bootloader);
@@ -409,6 +485,12 @@
         private MaterialSkin.Controls.MaterialLabel bootloader;
         private MaterialSkin.Controls.MaterialLabel oem;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialLabel romName;
+        private MaterialSkin.Controls.MaterialLabel deviceName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private System.Windows.Forms.ComboBox oemType;
     }
 }
 
