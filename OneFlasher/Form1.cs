@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,12 +15,10 @@ namespace OneFlasher
     {
 
         OpenFileDialog input = new OpenFileDialog();
-        string romDir = "Rom_Files";
-
+        string romDir = Path.GetTempPath().Replace("\\","/")+ "74cded5d19a9d6c7c36f7d74be42ce0c1e722698";
         public Form1()
         {
             InitializeComponent();
-
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -29,7 +28,7 @@ namespace OneFlasher
 
             Timer deviceCheck = new Timer();
             deviceCheck.Tick += new EventHandler(deviceChecker);
-            deviceCheck.Interval = 25; // in miliseconds
+            deviceCheck.Interval = 25;
             deviceCheck.Start();
         }
 
@@ -107,23 +106,32 @@ namespace OneFlasher
         {
             if (checkDevice())
             {
-
                 if (MessageBox.Show("\"" + input.SafeFileName + "\" Yazılımının Kurulum İşlemini Onaylıyor Musunuz? İşlemlerden One Team Ve Rom Sahibi Sorumlu Tutulamaz!", "İşlem Onayı",
 MessageBoxButtons.YesNo, MessageBoxIcon.Question,
 MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                    DirectoryInfo romFiles = new DirectoryInfo("Rom_Files");
+                    DirectoryInfo romFiles = new DirectoryInfo(romDir);
                     FileInfo[] files = romFiles.GetFiles("*");
 
+                    var ini = new IniFile(romDir + "/rom.ini");
+                    string[] abParts= (!String.IsNullOrEmpty(ini.Read("abParts", "OneCompressor")) ? ini.Read("abParts", "OneCompressor").Split('|') : new string[] { });
                     List<KeyValuePair<string, string>> flashList = new List<KeyValuePair<string, string>>();
 
                     foreach (FileInfo file in files)
                     {
                         if (file.Name == "rom.ini" || file.Name.Substring(0, 3) == "oem") continue;
-                        flashList.Add(new KeyValuePair<string, string>(file.Name.Split('.')[0], file.Name));
+                        if(abParts.Contains(file.Name))
+                        {
+                            flashList.Add(new KeyValuePair<string, string>(file.Name.Split('.')[0]+"_a", file.Name));
+                            flashList.Add(new KeyValuePair<string, string>(file.Name.Split('.')[0]+"_b", file.Name));
+                        }
+                        else
+                        {
+                            flashList.Add(new KeyValuePair<string, string>(file.Name.Split('.')[0], file.Name));
+                        }
+                        
                     }
                     if (oemType.Text != "") flashList.Add(new KeyValuePair<string, string>("oem", oemType.Text + ".img"));
-
                     foreach (KeyValuePair<string, string> flash in flashList)
                     {
                         action.Text = flash.Key + " Flashlanıyor.";
@@ -137,6 +145,7 @@ MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                     MessageBox.Show("Yazılım Kurulum İşlemi Tamamlandı. Cihazınız Yeniden Başlatılıyor.", "Bilgilendirme Mesajı!",
     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     fastboot_reboot();
+                    if (Directory.Exists(romDir)) Directory.Delete(romDir, true);
                     action.Text = "Flashlama İşlemi Tamamlandı.";
                     progress.Value = 100;
                 }
@@ -169,7 +178,7 @@ MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     StartInfo = new ProcessStartInfo
                     {
-                        FileName = "library/oneteam.exe",
+                        FileName = "library/onelabs.exe",
                         Arguments = "x -y -o " + romDir + " " + input.FileName + " *",
                         UseShellExecute = false,
                         CreateNoWindow = true
@@ -182,10 +191,11 @@ MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 var ini = new IniFile(romDir + "/rom.ini");
                 deviceName.Text = ini.Read("deviceName", "OneCompressor") + "( " + ini.Read("deviceCode", "OneCompressor") + " )";
                 romName.Text = ini.Read("romName", "OneCompressor") + " ( V" + ini.Read("romVersion", "OneCompressor") + " )";
+                ab.Text = (!String.IsNullOrEmpty(ini.Read("abParts", "OneCompressor"))?"Evet":"Hayır");
 
                 oemType.Items.Clear();
 
-                DirectoryInfo romFiles = new DirectoryInfo("Rom_Files");
+                DirectoryInfo romFiles = new DirectoryInfo(romDir);
                 FileInfo[] files = romFiles.GetFiles("oem*");
 
                 foreach (FileInfo file in files)

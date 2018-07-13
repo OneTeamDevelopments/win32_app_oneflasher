@@ -59,6 +59,8 @@
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.oemType = new System.Windows.Forms.ComboBox();
+            this.ab = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.androidDevice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,10 +157,10 @@
             // 
             this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(318, 411);
+            this.materialDivider3.Location = new System.Drawing.Point(318, 381);
             this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(3, 120);
+            this.materialDivider3.Size = new System.Drawing.Size(3, 150);
             this.materialDivider3.TabIndex = 14;
             this.materialDivider3.Text = "materialDivider3";
             // 
@@ -166,10 +168,10 @@
             // 
             this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider4.Depth = 0;
-            this.materialDivider4.Location = new System.Drawing.Point(851, 411);
+            this.materialDivider4.Location = new System.Drawing.Point(851, 381);
             this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider4.Name = "materialDivider4";
-            this.materialDivider4.Size = new System.Drawing.Size(3, 120);
+            this.materialDivider4.Size = new System.Drawing.Size(3, 150);
             this.materialDivider4.TabIndex = 15;
             this.materialDivider4.Text = "materialDivider4";
             // 
@@ -178,7 +180,7 @@
             this.softwareInfo.Depth = 0;
             this.softwareInfo.Font = new System.Drawing.Font("Roboto", 11F);
             this.softwareInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.softwareInfo.Location = new System.Drawing.Point(318, 379);
+            this.softwareInfo.Location = new System.Drawing.Point(318, 349);
             this.softwareInfo.MouseState = MaterialSkin.MouseState.HOVER;
             this.softwareInfo.Name = "softwareInfo";
             this.softwareInfo.Size = new System.Drawing.Size(130, 25);
@@ -190,7 +192,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(318, 145);
+            this.materialLabel1.Location = new System.Drawing.Point(318, 134);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(130, 25);
@@ -201,7 +203,7 @@
             // 
             this.materialDivider5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider5.Depth = 0;
-            this.materialDivider5.Location = new System.Drawing.Point(851, 177);
+            this.materialDivider5.Location = new System.Drawing.Point(851, 166);
             this.materialDivider5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider5.Name = "materialDivider5";
             this.materialDivider5.Size = new System.Drawing.Size(3, 160);
@@ -212,7 +214,7 @@
             // 
             this.materialDivider6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider6.Depth = 0;
-            this.materialDivider6.Location = new System.Drawing.Point(318, 177);
+            this.materialDivider6.Location = new System.Drawing.Point(318, 166);
             this.materialDivider6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider6.Name = "materialDivider6";
             this.materialDivider6.Size = new System.Drawing.Size(3, 160);
@@ -223,7 +225,7 @@
             // 
             this.materialDivider7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider7.Depth = 0;
-            this.materialDivider7.Location = new System.Drawing.Point(318, 337);
+            this.materialDivider7.Location = new System.Drawing.Point(318, 326);
             this.materialDivider7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider7.Name = "materialDivider7";
             this.materialDivider7.Size = new System.Drawing.Size(536, 3);
@@ -234,7 +236,7 @@
             // 
             this.materialDivider8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider8.Depth = 0;
-            this.materialDivider8.Location = new System.Drawing.Point(318, 177);
+            this.materialDivider8.Location = new System.Drawing.Point(318, 166);
             this.materialDivider8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider8.Name = "materialDivider8";
             this.materialDivider8.Size = new System.Drawing.Size(536, 3);
@@ -245,7 +247,7 @@
             // 
             this.materialDivider9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider9.Depth = 0;
-            this.materialDivider9.Location = new System.Drawing.Point(318, 411);
+            this.materialDivider9.Location = new System.Drawing.Point(318, 381);
             this.materialDivider9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider9.Name = "materialDivider9";
             this.materialDivider9.Size = new System.Drawing.Size(536, 3);
@@ -257,7 +259,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(327, 267);
+            this.materialLabel4.Location = new System.Drawing.Point(327, 256);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(95, 22);
@@ -269,7 +271,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(327, 194);
+            this.materialLabel2.Location = new System.Drawing.Point(327, 183);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(95, 22);
@@ -281,7 +283,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(327, 229);
+            this.materialLabel3.Location = new System.Drawing.Point(327, 218);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(95, 22);
@@ -293,7 +295,7 @@
             this.board.Depth = 0;
             this.board.Font = new System.Drawing.Font("Roboto", 11F);
             this.board.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.board.Location = new System.Drawing.Point(428, 194);
+            this.board.Location = new System.Drawing.Point(428, 183);
             this.board.MouseState = MaterialSkin.MouseState.HOVER;
             this.board.Name = "board";
             this.board.Size = new System.Drawing.Size(415, 22);
@@ -304,7 +306,7 @@
             this.serialno.Depth = 0;
             this.serialno.Font = new System.Drawing.Font("Roboto", 11F);
             this.serialno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.serialno.Location = new System.Drawing.Point(428, 229);
+            this.serialno.Location = new System.Drawing.Point(428, 218);
             this.serialno.MouseState = MaterialSkin.MouseState.HOVER;
             this.serialno.Name = "serialno";
             this.serialno.Size = new System.Drawing.Size(415, 22);
@@ -315,7 +317,7 @@
             this.bootloader.Depth = 0;
             this.bootloader.Font = new System.Drawing.Font("Roboto", 11F);
             this.bootloader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bootloader.Location = new System.Drawing.Point(428, 267);
+            this.bootloader.Location = new System.Drawing.Point(428, 256);
             this.bootloader.MouseState = MaterialSkin.MouseState.HOVER;
             this.bootloader.Name = "bootloader";
             this.bootloader.Size = new System.Drawing.Size(415, 22);
@@ -326,7 +328,7 @@
             this.oem.Depth = 0;
             this.oem.Font = new System.Drawing.Font("Roboto", 11F);
             this.oem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.oem.Location = new System.Drawing.Point(428, 303);
+            this.oem.Location = new System.Drawing.Point(428, 292);
             this.oem.MouseState = MaterialSkin.MouseState.HOVER;
             this.oem.Name = "oem";
             this.oem.Size = new System.Drawing.Size(415, 22);
@@ -337,7 +339,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(327, 303);
+            this.materialLabel6.Location = new System.Drawing.Point(327, 292);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(95, 22);
@@ -349,7 +351,7 @@
             this.romName.Depth = 0;
             this.romName.Font = new System.Drawing.Font("Roboto", 11F);
             this.romName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.romName.Location = new System.Drawing.Point(428, 462);
+            this.romName.Location = new System.Drawing.Point(428, 432);
             this.romName.MouseState = MaterialSkin.MouseState.HOVER;
             this.romName.Name = "romName";
             this.romName.Size = new System.Drawing.Size(415, 22);
@@ -360,7 +362,7 @@
             this.deviceName.Depth = 0;
             this.deviceName.Font = new System.Drawing.Font("Roboto", 11F);
             this.deviceName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.deviceName.Location = new System.Drawing.Point(428, 427);
+            this.deviceName.Location = new System.Drawing.Point(428, 397);
             this.deviceName.MouseState = MaterialSkin.MouseState.HOVER;
             this.deviceName.Name = "deviceName";
             this.deviceName.Size = new System.Drawing.Size(415, 22);
@@ -371,7 +373,7 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(327, 462);
+            this.materialLabel8.Location = new System.Drawing.Point(327, 432);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(95, 22);
@@ -383,7 +385,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(327, 427);
+            this.materialLabel9.Location = new System.Drawing.Point(327, 397);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(95, 22);
@@ -395,7 +397,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(327, 496);
+            this.materialLabel7.Location = new System.Drawing.Point(327, 500);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(95, 22);
@@ -407,16 +409,41 @@
             this.oemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.oemType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.oemType.FormattingEnabled = true;
-            this.oemType.Location = new System.Drawing.Point(428, 496);
+            this.oemType.Location = new System.Drawing.Point(428, 500);
             this.oemType.Name = "oemType";
             this.oemType.Size = new System.Drawing.Size(415, 21);
             this.oemType.TabIndex = 38;
+            // 
+            // ab
+            // 
+            this.ab.Depth = 0;
+            this.ab.Font = new System.Drawing.Font("Roboto", 11F);
+            this.ab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ab.Location = new System.Drawing.Point(428, 466);
+            this.ab.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ab.Name = "ab";
+            this.ab.Size = new System.Drawing.Size(415, 22);
+            this.ab.TabIndex = 40;
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel10.Location = new System.Drawing.Point(327, 466);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(95, 22);
+            this.materialLabel10.TabIndex = 39;
+            this.materialLabel10.Text = "A/B:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 606);
+            this.Controls.Add(this.ab);
+            this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.oemType);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.romName);
@@ -453,7 +480,7 @@
             this.Name = "Form1";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "One Flasher - one-teams.com";
+            this.Text = "One Flasher - onelabs.net";
             ((System.ComponentModel.ISupportInitialize)(this.androidDevice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -491,6 +518,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.ComboBox oemType;
+        private MaterialSkin.Controls.MaterialLabel ab;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
     }
 }
 
